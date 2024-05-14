@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// import ReactDOM from "react-dom/client";
+import { ReactDOM } from "react";
+import "./index.css";
+import Body from "./Components/Body";
+import Error from "./Components/Error";
+import About from "./Components/About";
+import Header from "./Components/Header";
+import Contact from "./Components/Contact";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RestaurantCard from "./Components/Reastaurant";
+import RestaurantMenu from "./Components/RestaurantMenu";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/restaurantmenu" element={<RestaurantMenu/>} />
+          {/* <Route path="*" element={<Navigate replace to="/404" />} /> */} 
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
